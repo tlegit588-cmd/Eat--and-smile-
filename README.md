@@ -1,19 +1,33 @@
 # Eat & Smile
 
-A responsive, static food-delivery storefront built with plain HTML, CSS, and JavaScript. No build step or package installation is required.
+A responsive food-delivery storefront with a Node.js/Express backend.
 
 ## Run locally
 
-Open `index.html` in a browser, or serve this directory with any static web server (for example, `python -m http.server 8000`) and visit `http://localhost:8000`.
+```bash
+npm install
+npm start
+```
 
-## Included
+Open `http://localhost:3000`.
 
-- Responsive menu with category filters and live search
-- Product cards with prices, ratings, and add-to-cart controls
-- Cart drawer with quantity controls, subtotal, and cart persistence in local storage
-- Delivery address entry, saved locally on the current browser
-- Accessible labels, keyboard focus styles, reduced-motion support, and mobile layouts
+## API
 
-## Demo limitations
+- `GET /api/health` — service health
+- `GET /api/menu` — menu; supports `?category=Mains` and `?search=chicken`
+- `GET /api/menu/:id` — one menu item
+- `POST /api/orders` — create an order
+- `GET /api/orders` — list demo orders
+- `GET /api/orders/:id` — retrieve an order
 
-This is a front-end demonstration. The sample menu and prices are static; checkout does not place an order. A production delivery service still needs a backend for menu availability, user accounts, payments, order management, delivery estimates, and secure address handling. Food photos and web fonts are loaded from external services.
+Example order:
+
+```json
+{
+  "address": "123 Market Street",
+  "customerName": "Alex",
+  "items": [{"id": "crispy-chicken", "quantity": 2}]
+}
+```
+
+Orders are stored locally in `data/orders.json`. This demo does not process payments or require authentication; add both before production use.

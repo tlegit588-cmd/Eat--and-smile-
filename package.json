@@ -1,0 +1,1 @@
+{"name":"eat-and-smile","version":"2.0.0","private":true,"description":"Backend and storefront for Eat & Smile","main":"server.js","scripts":{"start":"node server.js","dev":"node --watch server.js","test":"node --test"},"engines":{"node":">=18"},"dependencies":{"express":"^4.21.2"}}
